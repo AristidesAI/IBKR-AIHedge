@@ -3,7 +3,6 @@
 
 A modern FastAPI backend that integrates AI hedge fund decision-making with Interactive Brokers Web API. This allows algorithmic trading strategies to be executed automatically using real-time market data. Using the [AI-Hedge-Fund](https://github.com/virattt/ai-hedge-fund) repo with some of my own changes. My full write up with more technical details are in this [📜Medium Article📜](https://medium.com/@aristidesai/interactive-broker-web-api-ec01e6cf3de2). If you enjoy this project and wish to see more, please follow me on [X/Twitter❤️](https://x.com/aristidesai)
 
----
 
 ## Features
 
@@ -12,7 +11,6 @@ A modern FastAPI backend that integrates AI hedge fund decision-making with Inte
 #### - 📈 Trade execution (buy/sell) with live market orders
 #### - ⚡ Clean FastAPI REST interface for external services or agents
 
----
 
 ## Project Structure
 
@@ -22,8 +20,6 @@ A modern FastAPI backend that integrates AI hedge fund decision-making with Inte
 ├── trade_decision.py     # Dataclass for structured trade decisions
 ├── main.py               # FastAPI wrapper with trading endpoints
 ```
-
----
 
 ## API Endpoints
 
@@ -61,7 +57,6 @@ Response:
 }
 ```
 
----
 
 ### Setup Instructions
 
@@ -83,19 +78,16 @@ BASE_URL = "https://api.interactivebrokers.com"
 uvicorn main:app --reload
 ```
 
----
 
 ## References
 
 - [AI Hedge Fund (virattt)](https://github.com/virattt/ai-hedge-fund)
 - [IBKR Web API Docs](https://www.interactivebrokers.com/campus/ibkr-api-page/web-api-trading/)
 
----
 
 ## License
 MIT License
 
----
 
 ## Contact
 Please contact me on [X/Twitter❤️](https://x.com/aristidesai) for collaboration, integrations, or support. 
