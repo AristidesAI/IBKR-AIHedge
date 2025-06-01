@@ -1,19 +1,20 @@
-# 🧠 IBKR FastAPI Trading API
+#  IBKR FastAPI Trading API
+<p align="center"> <img src="Logos/ibkr.jpg" alt="IBKR" width="220" height="90">  <img src="Logos/plus.png" alt="Plus" width="50" height="50"> <img src="Logos/ChatGPT.png" alt="GPT" width="90" height="90"> </p>
 
 A modern FastAPI backend that integrates AI hedge fund decision-making with Interactive Brokers Web API. This allows algorithmic trading strategies to be executed automatically using real-time market data. Using the [AI-Hedge-Fund](https://github.com/virattt/ai-hedge-fund) repo with some of my own changes. My full write up with more technical details are in this [📜Medium Article📜](https://medium.com/@aristidesai/interactive-broker-web-api-ec01e6cf3de2). If you enjoy this project and wish to see more, please follow me on [X/Twitter❤️](https://x.com/aristidesai)
 
 ---
 
-## 📌 Features
+## Features
 
-- 🔐 OAuth2 authentication with IBKR
-- 🔎 Dynamic conid (contract ID) lookup via `/iserver/secdef/search`
-- 📈 Trade execution (buy/sell) with live market orders
-- ⚡ Clean FastAPI REST interface for external services or agents
+#### - 🔐 OAuth2 authentication with IBKR
+#### - 🔎 Dynamic conid (contract ID) lookup via `/iserver/secdef/search`
+#### - 📈 Trade execution (buy/sell) with live market orders
+#### - ⚡ Clean FastAPI REST interface for external services or agents
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 ├── ibkr_client.py        # IBKR Web API Client for authentication and order placement
@@ -24,7 +25,7 @@ A modern FastAPI backend that integrates AI hedge fund decision-making with Inte
 
 ---
 
-## 🚀 API Endpoints
+## API Endpoints
 
 #### `GET /health`
 Returns a simple health check.
@@ -62,7 +63,7 @@ Response:
 
 ---
 
-### ⚙️ Setup Instructions
+### Setup Instructions
 
 1. **Install dependencies**
 ```bash
@@ -84,14 +85,14 @@ uvicorn main:app --reload
 
 ---
 
-## 📚 References
+## References
 
 - [AI Hedge Fund (virattt)](https://github.com/virattt/ai-hedge-fund)
 - [IBKR Web API Docs](https://www.interactivebrokers.com/campus/ibkr-api-page/web-api-trading/)
 
 ---
 
-## 📈 License
+## License
 MIT License
 
 ---
