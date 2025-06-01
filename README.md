@@ -97,5 +97,5 @@ MIT License
 
 ---
 
-## 💬 Contact
-For collaboration, integrations, or support, feel free to reach out via issues or pull requests.
+## Contact
+Please contact me on [X/Twitter❤️](https://x.com/aristidesai) for collaboration, integrations, or support. 
