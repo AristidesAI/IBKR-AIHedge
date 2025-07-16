@@ -7,7 +7,7 @@
 
 An automated trading integration that connects Interactive Brokers with AI-powered financial analysis for intelligent trading decisions.
 
-> **Created by**: [@aristidesai](https://x.com/aristidesai) | **Follow for updates and trading insights**
+> **Created by**: [@aristides lintzeris](https://x.com/aristidesai) | **Follow for updates and trading insights**
 
 ## 🚀 Features
 
