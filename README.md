@@ -1,4 +1,6 @@
 # IBKR AI Hedge Fund Integration
+<p align="center"> <img src="Logos/ibkr.jpg" alt="IBKR" width="220" height="90">  <img src="Logos/plus.png" alt="Plus" width="50" height="50"> <img src="Logos/ChatGPT.png" alt="GPT" width="90" height="90"> </p>
+
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
