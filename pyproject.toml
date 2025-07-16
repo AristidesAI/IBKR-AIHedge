@@ -1,0 +1,258 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ibkr-ai-hedge-fund"
+version = "1.0.0"
+description = "An automated trading integration that connects Interactive Brokers with AI-powered financial analysis"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Aristides Lintzeris", email = "contact@aristidesai.com"},
+]
+maintainers = [
+    {name = "Aristides Lintzeris", email = "contact@aristidesai.com"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+keywords = [
+    "trading",
+    "ai",
+    "machine-learning",
+    "finance",
+    "interactive-brokers",
+    "algorithmic-trading",
+    "quantitative-finance",
+    "hedge-fund",
+    "automation",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "ibapi>=10.19.01",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "python-dotenv>=1.0.0",
+    "schedule>=1.2.0",
+    "pytz>=2023.3",
+    "colorlog>=6.7.0",
+    "requests>=2.31.0",
+    "pydantic>=2.0.0",
+    "typing-extensions>=4.7.0",
+    "openai>=1.6.0",
+    "anthropic>=0.18.0",
+    "groq>=0.4.0",
+    "google-generativeai>=0.3.0",
+    "yfinance>=0.2.12",
+    "alpha-vantage>=2.3.1",
+    "quandl>=3.7.0",
+    "sqlalchemy>=2.0.0",
+    "psycopg2-binary>=2.9.0",
+    "pymysql>=1.1.0",
+    "aiohttp>=3.9.0",
+    "loguru>=0.7.0",
+    "prometheus-client>=0.19.0",
+    "psutil>=5.9.0",
+    "cryptography>=41.0.0",
+    "keyring>=24.3.0",
+    "pyyaml>=6.0.1",
+    "httpx>=0.26.0",
+    "python-dateutil>=2.8.2",
+    "arrow>=1.3.0",
+    "scipy>=1.11.0",
+    "scikit-learn>=1.3.0",
+    "click>=8.1.7",
+    "tqdm>=4.66.0",
+    "rich>=13.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-xdist>=3.3.1",
+    "pytest-mock>=3.11.1",
+    "pytest-asyncio>=0.23.2",
+    "pytest-timeout>=2.2.0",
+    "black>=23.9.1",
+    "flake8>=6.1.0",
+    "isort>=5.12.0",
+    "mypy>=1.7.0",
+    "pre-commit>=3.6.0",
+    "bandit>=1.7.5",
+    "pylint>=3.0.0",
+    "safety>=2.3.0",
+    "jupyter>=1.0.0",
+    "ipython>=8.17.0",
+]
+docs = [
+    "sphinx>=7.2.0",
+    "sphinx-rtd-theme>=1.3.0",
+    "myst-parser>=2.0.0",
+    "sphinx-autodoc-typehints>=1.25.0",
+]
+test = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.11.1",
+    "pytest-asyncio>=0.23.2",
+    "factory-boy>=3.3.0",
+    "freezegun>=1.2.2",
+    "responses>=0.24.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/aristideslintzeris/ibkr-ai-hedge-fund"
+"Bug Reports" = "https://github.com/aristideslintzeris/ibkr-ai-hedge-fund/issues"
+"Source" = "https://github.com/aristideslintzeris/ibkr-ai-hedge-fund"
+"Documentation" = "https://github.com/aristideslintzeris/ibkr-ai-hedge-fund/tree/main/docs"
+"Twitter" = "https://x.com/aristidesai"
+
+[project.scripts]
+ibkr-ai-hedge-fund = "ibkr_integration:main"
+ibkr-config = "config:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ibkr_*", "docs*"]
+exclude = ["tests*", "*.tests*", "*.tests"]
+
+[tool.setuptools.package-data]
+"*" = ["*.md", "*.txt", "*.yml", "*.yaml", "*.json"]
+
+# Black configuration
+[tool.black]
+line-length = 88
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+  | ai-hedge-fund
+)/
+'''
+
+# isort configuration
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["ibkr_integration", "config"]
+skip_glob = ["ai-hedge-fund/*"]
+
+# pytest configuration
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --strict-config"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+    "paper_trading: marks tests that require paper trading",
+    "live_trading: marks tests that require live trading (use with caution)",
+]
+
+# mypy configuration
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+exclude = [
+    "ai-hedge-fund/",
+    "build/",
+    "dist/",
+]
+
+# Coverage configuration
+[tool.coverage.run]
+source = ["."]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/.venv/*",
+    "*/ai-hedge-fund/*",
+    "setup.py",
+    "*/site-packages/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+# Bandit security configuration
+[tool.bandit]
+exclude_dirs = ["tests", "ai-hedge-fund"]
+skips = ["B101", "B601"]
+
+# Flake8 configuration (in setup.cfg format for compatibility)
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "E501", "W503"]
+exclude = [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "build",
+    "dist",
+    "ai-hedge-fund",
+]
+
+# Pylint configuration
+[tool.pylint.messages_control]
+disable = [
+    "C0114",  # missing-module-docstring
+    "C0115",  # missing-class-docstring
+    "C0116",  # missing-function-docstring
+    "R0903",  # too-few-public-methods
+    "R0913",  # too-many-arguments
+]
+
+[tool.pylint.format]
+max-line-length = 88 

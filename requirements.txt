@@ -1,0 +1,70 @@
+# Core Dependencies
+ibapi>=10.19.01
+pandas>=2.0.0
+numpy>=1.24.0
+python-dotenv>=1.0.0
+schedule>=1.2.0
+pytz>=2023.3
+colorlog>=6.7.0
+requests>=2.31.0
+pydantic>=2.0.0
+typing-extensions>=4.7.0
+
+# AI/ML Dependencies
+openai>=1.6.0
+anthropic>=0.18.0
+groq>=0.4.0
+google-generativeai>=0.3.0
+
+# Data Analysis
+yfinance>=0.2.12
+alpha-vantage>=2.3.1
+quandl>=3.7.0
+
+# Database Support
+sqlalchemy>=2.0.0
+sqlite3-to-postgresql>=0.1.0
+psycopg2-binary>=2.9.0
+pymysql>=1.1.0
+
+# Async Support
+aiohttp>=3.9.0
+asyncio-mqtt>=0.13.0
+
+# Logging and Monitoring
+loguru>=0.7.0
+prometheus-client>=0.19.0
+psutil>=5.9.0
+
+# Notification Support
+smtplib2>=0.2.1
+slack-sdk>=3.26.0
+twilio>=8.12.0
+
+# Security
+cryptography>=41.0.0
+keyring>=24.3.0
+
+# Configuration Management
+pyyaml>=6.0.1
+configparser>=6.0.0
+
+# HTTP Client
+httpx>=0.26.0
+
+# Date/Time Utilities
+dateutil>=2.8.2
+arrow>=1.3.0
+
+# Scientific Computing
+scipy>=1.11.0
+scikit-learn>=1.3.0
+
+# Performance Monitoring
+memory-profiler>=0.61.0
+line-profiler>=4.1.0
+
+# Utility Libraries
+click>=8.1.7
+tqdm>=4.66.0
+rich>=13.7.0 

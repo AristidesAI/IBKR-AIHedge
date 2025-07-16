@@ -1,0 +1,201 @@
+version: '3.8'
+
+services:
+  # Main trading application
+  ibkr-ai-hedge-fund:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: ibkr-ai-hedge-fund
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=INFO
+      - DATABASE_URL=postgresql://trader:password@postgres:5432/trading_db
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+    networks:
+      - trading-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "from config import Config; config = Config(); exit(0 if config.validate()[0] else 1)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Development version with additional tools
+  ibkr-ai-hedge-fund-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: ibkr-ai-hedge-fund-dev
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=DEBUG
+      - DATABASE_URL=postgresql://trader:password@postgres:5432/trading_db
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - ./logs:/app/logs
+      - ./data:/app/data
+    ports:
+      - "8000:8000"
+      - "8888:8888"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - trading-network
+    profiles:
+      - development
+    command: ["python", "ibkr_integration.py"]
+
+  # PostgreSQL database
+  postgres:
+    image: postgres:15-alpine
+    container_name: ibkr-postgres
+    environment:
+      - POSTGRES_DB=trading_db
+      - POSTGRES_USER=trader
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - trading-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trader -d trading_db"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Redis for caching and session management
+  redis:
+    image: redis:7-alpine
+    container_name: ibkr-redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    networks:
+      - trading-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Monitoring dashboard (optional)
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: ibkr-dashboard
+    environment:
+      - PYTHONPATH=/app
+      - DATABASE_URL=postgresql://trader:password@postgres:5432/trading_db
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - trading-network
+    profiles:
+      - monitoring
+    command: ["python", "dashboard.py"]
+
+  # Jupyter notebook for analysis (development only)
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: ibkr-jupyter
+    environment:
+      - PYTHONPATH=/app
+      - DATABASE_URL=postgresql://trader:password@postgres:5432/trading_db
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - ./notebooks:/app/notebooks
+    ports:
+      - "8888:8888"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - trading-network
+    profiles:
+      - development
+    command: ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+
+  # nginx reverse proxy (production)
+  nginx:
+    image: nginx:alpine
+    container_name: ibkr-nginx
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/ssl:/etc/ssl
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - ibkr-ai-hedge-fund
+      - dashboard
+    networks:
+      - trading-network
+    profiles:
+      - production
+    restart: unless-stopped
+
+  # Log aggregation
+  fluentd:
+    image: fluent/fluentd:v1.16-1
+    container_name: ibkr-fluentd
+    volumes:
+      - ./docker/fluentd/fluent.conf:/fluentd/etc/fluent.conf
+      - ./logs:/fluentd/log
+    ports:
+      - "24224:24224"
+    networks:
+      - trading-network
+    profiles:
+      - monitoring
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  trading-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16 
