@@ -397,9 +397,6 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 ## 📞 Contact
 
 - **Creator**: [@aristidesai](https://x.com/aristidesai)
-- **Twitter**: [https://x.com/aristidesai](https://x.com/aristidesai)
-- **Issues**: [GitHub Issues](https://github.com/aristideslintzeris/ibkr-ai-hedge-fund/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/aristideslintzeris/ibkr-ai-hedge-fund/discussions)
 
 For project updates, trading insights, and AI developments, follow [@aristidesai](https://x.com/aristidesai) on Twitter.
 
@@ -419,9 +416,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Consult with financial professionals
 
 ## 🆘 Support
-
-- **Issues**: [GitHub Issues](https://github.com/aristideslintzeris/ibkr-ai-hedge-fund/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/aristideslintzeris/ibkr-ai-hedge-fund/discussions)
+Contact me on twitter for support - [@aristidesai](https://x.com/aristidesai) 
 - **IBKR API**: [Official Documentation](https://interactivebrokers.github.io/tws-api/)
 
 ## 🙏 Acknowledgments
