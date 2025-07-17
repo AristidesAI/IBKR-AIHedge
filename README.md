@@ -1,4 +1,6 @@
 # IBKR AI Hedge Fund Integration
+<p align="center"> <img src="Logos/ibkr.jpg" alt="IBKR" width="220" height="90">  <img src="Logos/plus.png" alt="Plus" width="50" height="50"> <img src="Logos/ChatGPT.png" alt="GPT" width="90" height="90"> </p>
+
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -7,9 +9,9 @@
 
 An automated trading integration that connects Interactive Brokers with AI-powered financial analysis for intelligent trading decisions.
 
-> **Created by**: [@aristidesai](https://x.com/aristidesai) | **Follow for updates and trading insights**
+> **Created by**: [@aristides lintzeris](https://x.com/aristidesai) | **Follow for updates and trading insights**
 
-## 🚀 Features
+## Features
 
 - **Real-time Data Processing**: Connect to Interactive Brokers API for live market data
 - **AI-Powered Analysis**: Leverage multiple AI models for comprehensive market analysis
@@ -19,7 +21,7 @@ An automated trading integration that connects Interactive Brokers with AI-power
 - **Paper Trading Support**: Test strategies safely before live trading
 - **Comprehensive Logging**: Track all activities and performance metrics
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Quick Start](#quick-start)
 - [Prerequisites](#prerequisites)
@@ -34,7 +36,7 @@ An automated trading integration that connects Interactive Brokers with AI-power
 - [Contact](#contact)
 - [Disclaimer](#disclaimer)
 
-## ⚡ Quick Start
+## Quick Start
 
 Get up and running in 5 minutes:
 
@@ -54,7 +56,7 @@ cp env.template .env
 python ibkr_integration.py
 ```
 
-## 🔧 Prerequisites
+##  Prerequisites
 
 ### Interactive Brokers Account
 - Sign up at [Interactive Brokers](https://www.interactivebrokers.com/)
@@ -70,7 +72,7 @@ python ibkr_integration.py
 - **Financial Datasets API Key**: For market data
 - **Optional**: Additional model providers (Anthropic, Groq, DeepSeek, Google)
 
-## 🛠️ Installation
+## Installation
 
 ### 1. Clone the Repository
 ```bash
@@ -93,7 +95,7 @@ git clone https://github.com/virattt/ai-hedge-fund.git
 cp env.template .env
 ```
 
-## ⚙️ Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -198,7 +200,7 @@ WATCHLIST=7203,6758,6861,8411,9984,4661,6098,9432,8001,8031
    - Live Trading: `7496`
 5. **Add Trusted IPs**: `127.0.0.1`
 
-## 🚀 Usage
+## Usage
 
 ### Quick Start
 
@@ -275,7 +277,7 @@ TAKE_PROFIT_PERCENTAGE=0.15 # 15% take profit
 ```
 </details>
 
-## 🛡️ Risk Management
+## Risk Management
 
 ### Built-in Safety Features
 
@@ -311,7 +313,7 @@ Create a simple monitoring dashboard:
 python dashboard.py
 ```
 
-## 📚 Documentation
+## Documentation
 
 Comprehensive documentation is available in the `/docs` folder:
 
@@ -321,7 +323,7 @@ Comprehensive documentation is available in the `/docs` folder:
 - **[Trading Guide](docs/trading.md)**: Trading strategies and best practices
 - **[Troubleshooting](docs/troubleshooting.md)**: Common issues and solutions
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -384,7 +386,7 @@ Run diagnostic tests:
 python -m pytest tests/
 ```
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
@@ -394,20 +396,17 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 4. Add tests
 5. Submit a pull request
 
-## 📞 Contact
+## Contact
 
 - **Creator**: [@aristidesai](https://x.com/aristidesai)
-- **Twitter**: [https://x.com/aristidesai](https://x.com/aristidesai)
-- **Issues**: [GitHub Issues](https://github.com/aristideslintzeris/ibkr-ai-hedge-fund/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/aristideslintzeris/ibkr-ai-hedge-fund/discussions)
 
 For project updates, trading insights, and AI developments, follow [@aristidesai](https://x.com/aristidesai) on Twitter.
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 **Important**: This software is for educational purposes only. Trading involves substantial risk of loss. Always test thoroughly with paper trading before using real money. The authors and contributors are not responsible for any financial losses.
 
@@ -418,10 +417,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Understand the risks involved
 - Consult with financial professionals
 
-## 🆘 Support
-
-- **Issues**: [GitHub Issues](https://github.com/aristideslintzeris/ibkr-ai-hedge-fund/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/aristideslintzeris/ibkr-ai-hedge-fund/discussions)
+## Support
+Contact me on twitter for support - [@aristidesai](https://x.com/aristidesai) 
 - **IBKR API**: [Official Documentation](https://interactivebrokers.github.io/tws-api/)
 
 ## 🙏 Acknowledgments
@@ -432,4 +429,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Made with ❤️ by [@aristidesai](https://x.com/aristidesai) and the community 
+Made by [@aristides lintzeris](https://x.com/aristidesai) 
